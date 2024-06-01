@@ -792,3 +792,37 @@ Processing by PostsController#create as */*
 Completed 200 OK in 11ms (Views: 0.3ms | ActiveRecord: 4.5ms | Allocations: 3520)
 
 
+Started GET "/" for ::1 at 2024-06-01 14:57:19 +0900
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (16.8ms)[0m  [1m[34mSELECT `posts`.* FROM `posts` ORDER BY `posts`.`id` DESC[0m
+  ↳ app/views/posts/index.html.erb:10
+  Rendered posts/index.html.erb within layouts/application (Duration: 33.1ms | Allocations: 2681)
+  Rendered layout layouts/application.html.erb (Duration: 44.0ms | Allocations: 4876)
+Completed 200 OK in 89ms (Views: 28.1ms | ActiveRecord: 31.6ms | Allocations: 5305)
+
+
+Started POST "/posts" for ::1 at 2024-06-01 14:57:29 +0900
+Processing by PostsController#create as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "content"=>"test2"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:10:in `create'
+  [1m[36mPost Create (8.0ms)[0m  [1m[32mINSERT INTO `posts` (`content`, `created_at`, `updated_at`) VALUES ('test2', '2024-06-01 05:57:29.471625', '2024-06-01 05:57:29.471625')[0m
+  ↳ app/controllers/posts_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `create'
+Completed 200 OK in 20ms (Views: 0.5ms | ActiveRecord: 9.8ms | Allocations: 2379)
+
+
+Started GET "/" for ::1 at 2024-06-01 14:57:31 +0900
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT `posts`.* FROM `posts` ORDER BY `posts`.`id` DESC[0m
+  ↳ app/views/posts/index.html.erb:10
+  Rendered posts/index.html.erb within layouts/application (Duration: 7.4ms | Allocations: 2707)
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 4867)
+Completed 200 OK in 16ms (Views: 13.3ms | ActiveRecord: 0.8ms | Allocations: 5166)
+
+

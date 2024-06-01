@@ -768,3 +768,27 @@ Started POST "/post" for ::1 at 2024-05-25 00:36:22 +0900
   
 ActionController::RoutingError (No route matches [POST] "/post"):
   
+Started GET "/" for ::1 at 2024-06-01 14:49:27 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (5.6ms)[0m  [1m[34mSELECT `posts`.* FROM `posts` ORDER BY `posts`.`id` DESC[0m
+  ↳ app/views/posts/index.html.erb:10
+  Rendered posts/index.html.erb within layouts/application (Duration: 19.6ms | Allocations: 7182)
+  Rendered layout layouts/application.html.erb (Duration: 68.1ms | Allocations: 49100)
+Completed 200 OK in 80ms (Views: 62.7ms | ActiveRecord: 8.2ms | Allocations: 54164)
+
+
+Started POST "/posts" for ::1 at 2024-06-01 14:49:30 +0900
+Processing by PostsController#create as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "content"=>"test1"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:10:in `create'
+  [1m[36mPost Create (3.2ms)[0m  [1m[32mINSERT INTO `posts` (`content`, `created_at`, `updated_at`) VALUES ('test1', '2024-06-01 05:49:30.538630', '2024-06-01 05:49:30.538630')[0m
+  ↳ app/controllers/posts_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `create'
+Completed 200 OK in 11ms (Views: 0.3ms | ActiveRecord: 4.5ms | Allocations: 3520)
+
+

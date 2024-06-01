@@ -860,3 +860,26 @@ Processing by PostsController#create as */*
 Completed 200 OK in 22ms (Views: 0.9ms | ActiveRecord: 9.6ms | Allocations: 2360)
 
 
+Started GET "/" for ::1 at 2024-06-01 15:21:15 +0900
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (26.7ms)[0m  [1m[34mSELECT `posts`.* FROM `posts` ORDER BY `posts`.`id` DESC[0m
+  ↳ app/views/posts/index.html.erb:10
+  Rendered posts/index.html.erb within layouts/application (Duration: 47.9ms | Allocations: 2699)
+  Rendered layout layouts/application.html.erb (Duration: 56.0ms | Allocations: 4859)
+Completed 200 OK in 112ms (Views: 30.2ms | ActiveRecord: 52.2ms | Allocations: 5269)
+
+
+Started POST "/posts" for ::1 at 2024-06-01 15:21:23 +0900
+Processing by PostsController#create as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]", "content"=>"test"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:10:in `create'
+  [1m[36mPost Create (5.8ms)[0m  [1m[32mINSERT INTO `posts` (`content`, `created_at`, `updated_at`) VALUES ('test', '2024-06-01 06:21:23.961816', '2024-06-01 06:21:23.961816')[0m
+  ↳ app/controllers/posts_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:10:in `create'
+Completed 200 OK in 36ms (Views: 0.8ms | ActiveRecord: 7.7ms | Allocations: 2370)
+
+
